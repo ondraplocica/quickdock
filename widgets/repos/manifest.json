@@ -1,0 +1,1 @@
+{ "id": "repos", "name": "Git Repos", "description": "How many of your git repositories have uncommitted changes or unpushed/unpulled commits; the dropdown lists them. Read-only; 'Fetch all' is the only network access. widgetConfig.repos: roots, repos, exclude, open", "version": "0.1.0" }
