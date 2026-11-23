@@ -1,0 +1,1 @@
+{ "id": "recorder", "name": "Screen Recorder", "description": "Record the screen, a region or the active window with wf-recorder (or wl-screenrec); red dot and timer while recording, recent recordings in the dropdown. widgetConfig.recorder: dir, defaultMode, audio", "version": "0.1.0" }
