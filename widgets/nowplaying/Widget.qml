@@ -5,7 +5,11 @@ import "../../core"
 Tile {
     id: w
     readonly property var players: Mpris.players.values
-    readonly property var p: players.find(x => x.isPlaying) ?? players[0] ?? null
+    // The playing player; else one that is paused on a real track. An idle browser tab or a stopped player has no track,
+    // so it must not be picked (it used to show up as "Unknown").
+    readonly property var p: players.find(x => x.isPlaying)
+        ?? players.find(x => x.playbackState !== MprisPlaybackState.Stopped && (x.trackTitle || "").length > 0)
+        ?? null
     readonly property bool has: p !== null
     readonly property bool playing: has && p.isPlaying
     active: playing
@@ -24,6 +28,7 @@ Tile {
         Rectangle {
             width: Theme.tileHeight - 16; height: width; radius: 10; clip: true
             anchors.verticalCenter: parent.verticalCenter; color: Theme.tileFill
+            Icon { anchors.centerIn: parent; name: "music_note"; size: 20; color: Theme.textDim; visible: !w.has }
             Image { anchors.fill: parent; fillMode: Image.PreserveAspectCrop; asynchronous: true
                 source: w.has ? (w.p.trackArtUrl ?? "") : ""
                 opacity: status === Image.Ready ? 1 : 0
