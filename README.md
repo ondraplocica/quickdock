@@ -10,7 +10,7 @@ spring motion, Material You colours and a translucent "blur behind" look.
   <img src="docs/images/notifications.png" alt="notification bell with This PC / Phone tabs" width="420">
 </p>
 
-* 33 ready-made widgets: workspaces, app launcher, clock + calendar, weather, now playing, system stats, tray,
+* 36 ready-made widgets: workspaces, app launcher, clock + calendar, weather, now playing, system stats, tray,
   network speed, clipboard history, notes, notification bell with separate This PC / Phone tabs, a quick-settings
   panel with sliders and toggles, and more.
 * Everything is configurable from the UI (drag widgets around in the builder) or one JSON file.
@@ -122,6 +122,9 @@ dropdowns, then `systemctl --user restart quickdock`.
 | `antigravity` | Antigravity 5-hour and weekly quota per model group | an Antigravity / `agy` process running (reads its local server; shows the last reading otherwise) |
 | `home` | Home Assistant: on/off and brightness for pinned entities | `~/.config/quickdock/ha.json` = `{"url": "...", "token": "..."}`, pins in `widgetConfig.home` |
 | `protonpass` | Show / hide the Proton Pass desktop app as a dropdown | flatpak `me.proton.Pass` + Hyprland window rules, see below |
+| `recorder` | Screen recorder: whole screen, a region or the active window; red dot and timer while recording, recent recordings in the dropdown (`quickshell ipc call dock toggle recorder` starts/stops, handy for a keybind) | `wf-recorder` (or `wl-screenrec`), `slurp` for regions; `widgetConfig.recorder` = `{dir, defaultMode, audio}` |
+| `repos` | Git overview: how many repositories have uncommitted changes or unpushed / unpulled commits; the dropdown lists them (click opens the folder). Read-only, "Fetch all" is the only network access | `git`; `widgetConfig.repos` = `{roots, repos, exclude, worktrees, open}`, scans `~` one level deep by default |
+| `wallpaper` | Thumbnail grid of your wallpaper folder; click to set, Random | one of `dms`, `awww`, `swww`, `hyprpaper` (autodetected) or `widgetConfig.wallpaper.command` with `{file}`; folders in `widgetConfig.wallpaper.dirs` |
 | `example` | Template widget to copy | |
 
 ### Proton Pass dropdown
