@@ -17,3 +17,4 @@ QsBuilder 1.0 QsBuilder.qml
 singleton Notifs 1.0 Notifs.qml
 singleton QsStyle 1.0 QsStyle.qml
 singleton UserWidgets 1.0 UserWidgets.qml
+DirModel 1.0 DirModel.qml

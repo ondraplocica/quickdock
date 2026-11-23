@@ -1,5 +1,4 @@
 import QtQuick
-import Qt.labs.folderlistmodel
 import Quickshell
 import Quickshell.Io
 import "../../core"
@@ -71,16 +70,8 @@ Tile {
     }
     function openFolder() { Quickshell.execDetached(["xdg-open", folder]); }
 
-    FolderListModel {
-        id: files
-        folder: "file://" + w.folder
-        showDirs: false
-        showDotAndDotDot: false
-        showHidden: false
-        sortField: FolderListModel.Time
-        sortReversed: false             // Qt sorts by time newest-first already
-        onStatusChanged: if (status === FolderListModel.Ready && w.seen < 0) w.seen = count
-    }
+    DirModel { id: files; path: w.folder
+        onReadyChanged: if (ready && w.seen < 0) w.seen = count }
     FileView {                          // KDE Connect's current receive folder for this device
         id: shareCfg
         path: w.home + "/.config/kdeconnect/" + w.cur + "/kdeconnect_share/config"
@@ -125,7 +116,7 @@ Tile {
         target: w
         panelWidth: 340
         panelHeight: 214 + (w.receiving ? 0 : 66) + 30 + (files.count === 0 ? 46 : Math.min(files.count, 5) * 54)
-        onOpenChanged: if (open) w.seen = files.count
+        onOpenChanged: if (open) { files.recheck(); w.seen = files.count; }
         Column { anchors { fill: parent; margins: 16 } spacing: 12
             Row { spacing: 12
                 Item { width: 58; height: 58; anchors.verticalCenter: parent.verticalCenter
@@ -169,10 +160,10 @@ Tile {
                         Text { anchors.centerIn: parent; text: w.busy ? "…" : "Receive here"; color: "#101218"; font.family: Theme.font; font.pixelSize: 11; font.weight: Font.DemiBold }
                         MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: { if (w.busy || w.cur === "") return; w.busy = true; setup.running = true; } } } } }
             Text { visible: files.count === 0; width: parent.width; horizontalAlignment: Text.AlignHCenter; height: 30; verticalAlignment: Text.AlignVCenter
-                text: files.status === FolderListModel.Ready ? "Nothing received yet. Share a file to this PC from the phone." : "Folder not found yet"
+                text: files.ready ? "Nothing received yet. Share a file to this PC from the phone." : "Folder not found yet"
                 color: Theme.textDim; font.family: Theme.font; font.pixelSize: 11 }
             Column { width: parent.width; spacing: 4
-                Repeater { model: files
+                Repeater { model: files.items
                     delegate: Rectangle {
                         id: fr
                         required property int index
