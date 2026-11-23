@@ -1,0 +1,1 @@
+{ "id": "wallpaper", "name": "Wallpaper", "description": "Thumbnail grid of the images in your wallpaper folder(s); click to set. Backend autodetected (dms, awww, swww, hyprpaper) or widgetConfig.wallpaper.command with {file}; folders in widgetConfig.wallpaper.dirs", "version": "0.1.0" }
