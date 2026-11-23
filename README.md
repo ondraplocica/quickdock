@@ -16,8 +16,7 @@ spring motion, Material You colours and a translucent "blur behind" look.
 * Everything is configurable from the UI (drag widgets around in the builder) or one JSON file.
 * Writing your own widget is two files: see [docs/WRITING_WIDGETS.md](docs/WRITING_WIDGETS.md).
 
-> **Status:** works day to day on the author's machine (Hyprland 0.55, Quickshell 0.3). It is a personal project made
-> public, so expect rough edges on other setups. Bug reports with logs are welcome.
+> **Status:** This is a personal project made public as I had trouble finding what suited me. Bug reports welcome! :)
 
 ## Requirements
 
