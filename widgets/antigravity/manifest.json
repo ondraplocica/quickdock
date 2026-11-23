@@ -1,0 +1,1 @@
+{ "id": "antigravity", "name": "Antigravity Usage", "description": "Antigravity 5-hour and weekly quota (the worst 5-hour bucket as a ring with the percentage used). Reads the local Antigravity language server, so it needs an Antigravity/agy process running; otherwise shows the last reading", "version": "0.1.0" }

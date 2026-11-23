@@ -1,0 +1,1 @@
+{ "id": "clipboard", "name": "Clipboard", "description": "Clipboard history from cliphist; click to copy back. Needs cliphist + wl-clipboard and the wl-paste --watch feeders", "version": "0.1.0" }

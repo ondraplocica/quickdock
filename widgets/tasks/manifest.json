@@ -1,0 +1,1 @@
+{ "id": "tasks", "name": "Google Tasks", "description": "Checklist popover synced with your default Google Tasks list (read/add/complete). Needs a one-time OAuth setup, see widgets/tasks/README.md.", "version": "0.1.0" }

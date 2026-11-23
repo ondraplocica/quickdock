@@ -1,0 +1,1 @@
+{ "id": "github", "name": "GitHub", "description": "Contribution heatmap, streaks and open pull requests via the gh CLI (uses your existing gh login)", "version": "0.1.0" }

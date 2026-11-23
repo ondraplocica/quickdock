@@ -1,0 +1,1 @@
+{ "id": "tailscale", "name": "Tailscale", "description": "Tailnet status, online peers (click to copy an IP), exit-node chooser and connect/disconnect. Changing settings needs `sudo tailscale set --operator=$USER` once.", "version": "0.1.0" }

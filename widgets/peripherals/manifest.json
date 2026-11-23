@@ -1,0 +1,1 @@
+{"id": "peripherals", "name": "Peripherals", "description": "Batteries of Logitech devices (Solaar), Bluetooth devices and other upower devices as rings, plus a 'Wired' row for a USB Keychron keyboard that has no battery source (widgetConfig.peripherals: hidden, names)", "version": "0.1.0", "settings": true}

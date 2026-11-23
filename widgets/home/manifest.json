@@ -1,0 +1,1 @@
+{ "id": "home", "name": "Home", "description": "Home Assistant lights: on/off + brightness for pinned entities. Needs ~/.config/quickdock/ha.json {url, token}", "version": "0.1.0" }

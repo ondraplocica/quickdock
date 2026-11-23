@@ -1,0 +1,1 @@
+{"id": "kdeconnect", "name": "KDE Connect", "description": "Phone battery/reachability, ring, ping, clipboard, send files; the dropdown lists files received from the phone in widgetConfig.kdeconnect.folder (default ~/Phone) with a one-click 'Receive here' (device id in widgetConfig.kdeconnect.device)", "version": "0.1.0"}

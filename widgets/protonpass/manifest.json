@@ -1,0 +1,1 @@
+{ "id": "protonpass", "name": "Proton Pass", "description": "Toggles the Proton Pass desktop app via ~/.local/bin/protonpass-toggle (float/size rules live in hyprland.conf)", "version": "0.1.0" }

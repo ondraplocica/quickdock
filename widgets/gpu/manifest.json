@@ -1,0 +1,1 @@
+{ "id": "gpu", "name": "GPU", "description": "NVIDIA temperature and utilisation via nvidia-smi", "version": "0.1.0" }

@@ -1,0 +1,1 @@
+{ "id": "screenshot", "name": "Screenshot", "description": "Region/window/screen capture menu with last-shot preview. Needs grim, slurp, wl-copy (hyprctl+jq for window).", "version": "0.1.0" }

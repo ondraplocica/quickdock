@@ -1,0 +1,24 @@
+{
+  "position": "bottom",
+  "style": "bar",
+  "layout": "sections",
+  "scale": 1,
+  "dropdownScale": 1,
+  "dropdownSide": "above",
+  "accent": "#c4a7ff",
+  "opacity": 0.6,
+  "panelOpacity": 0.8,
+  "margin": 6,
+  "spacing": 8,
+  "reserveSpace": true,
+  "fullWidth": false,
+  "squareCorners": false,
+  "widgets": [
+    "@left", "workspaces", "apps", "focusedwindow",
+    "@center", "clock", "weather", "|", "nowplaying", "nextevent",
+    "@right", "sysstats", "gpu", "tray", "network", "|", "notifications", "clipboard", "|", "quicksettings", "privacy"
+  ],
+  "widgetConfig": {
+    "weather": { "city": "London", "lat": 51.51, "lon": -0.13 }
+  }
+}

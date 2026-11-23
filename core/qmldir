@@ -1,0 +1,19 @@
+singleton Theme 1.0 Theme.qml
+singleton Dock 1.0 Dock.qml
+Tile 1.0 Tile.qml
+Icon 1.0 Icon.qml
+Popover 1.0 Popover.qml
+Slider 1.0 Slider.qml
+QsTile 1.0 QsTile.qml
+IconButton 1.0 IconButton.qml
+Ring 1.0 Ring.qml
+Segmented 1.0 Segmented.qml
+Stepper 1.0 Stepper.qml
+MacSlider 1.0 MacSlider.qml
+singleton Quick 1.0 Quick.qml
+Builder 1.0 Builder.qml
+singleton QsLayout 1.0 QsLayout.qml
+QsBuilder 1.0 QsBuilder.qml
+singleton Notifs 1.0 Notifs.qml
+singleton QsStyle 1.0 QsStyle.qml
+singleton UserWidgets 1.0 UserWidgets.qml

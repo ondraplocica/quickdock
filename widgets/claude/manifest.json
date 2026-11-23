@@ -1,0 +1,1 @@
+{ "id": "claude", "name": "Claude Usage", "description": "5-hour / 7-day limits, token and cost totals. Uses get-claude-usage from the claudeCodeUsage plugin (MIT, Nicolas Bellamy)", "version": "0.1.0" }

@@ -1,0 +1,1 @@
+{ "id": "network", "name": "Network", "description": "Live download/upload speed with a sparkline; dropdown with a 60-second graph, peaks and totals. Interface = default route (override with widgetConfig.network.iface)", "version": "0.1.0" }

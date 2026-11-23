@@ -1,0 +1,1 @@
+{ "id": "dnd", "name": "Do Not Disturb", "description": "Bell toggle; right-click for durations. Uses `dms ipc` (DankMaterialShell notifications)", "version": "0.1.0" }

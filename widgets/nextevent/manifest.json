@@ -1,0 +1,1 @@
+{ "id": "nextevent", "name": "Next event", "description": "Countdown chip to your next calendar event (amber under 15 min) + upcoming agenda; reuses the clock widget's calendar link and local events. widgetConfig.nextevent: hideWhenEmpty, warnMinutes, horizonDays, h12", "version": "0.1.0" }

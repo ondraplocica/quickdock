@@ -1,0 +1,1 @@
+{ "id": "notes", "name": "Notes", "description": "Scratchpad that autosaves to ~/.local/share/quickdock/notes.md (override with widgetConfig.notes.file)", "version": "0.1.0" }

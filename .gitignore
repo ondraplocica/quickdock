@@ -1,0 +1,5 @@
+config/dock.json
+*.qmlc
+*.jsc
+__pycache__/
+*.pyc

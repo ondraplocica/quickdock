@@ -1,0 +1,64 @@
+#!/bin/bash
+# Show/hide the Proton Pass desktop app (flatpak me.proton.Pass) as a dropdown next to the dock.
+# The app has no tray icon, so instead of closing it (= quitting) it is parked on a hidden special workspace and
+# brought back to the dock's monitor when you click the tile.
+#
+#   protonpass-toggle                    toggle
+#   protonpass-toggle --focus-changed A  hide when focus moves to another window (called by core/Quick.qml)
+#
+# Needs: hyprctl, jq, flatpak. Float / size / position are Hyprland window rules, see "Proton Pass" in README.md.
+# The target monitor is "monitor" from config/dock.json, else the focused monitor.
+CLASS=me.proton.Pass
+HIDDEN=special:protonpass
+CFG="$(dirname "$(readlink -f "$0")")/../config/dock.json"
+MONITOR=$(jq -r '.monitor // empty' "$CFG" 2>/dev/null)
+[ -z "$MONITOR" ] && MONITOR=$(hyprctl monitors -j | jq -r 'map(select(.focused)) | first | .name')
+
+# Show time (ns); focus events within 1 s of it are ignored so the move/focus of the appearing window cannot
+# immediately auto-hide it again.
+GRACE="${XDG_RUNTIME_DIR:-/tmp}/protonpass-dropdown-shown"
+
+clients=$(hyprctl clients -j)
+win=$(jq -c --arg c "$CLASS" 'map(select(.class == $c)) | first' <<<"$clients")
+
+hide() { hyprctl dispatch movetoworkspacesilent "$HIDDEN,address:$1" >/dev/null; }
+
+# --focus-changed ADDR (Hyprland activewindowv2 data, no 0x): hide when focus moves to another window;
+# its own dialogs (same PID) and the file-chooser portal do not count.
+if [ "$1" = "--focus-changed" ]; then
+    [ $(( $(date +%s%N) - $(cat "$GRACE" 2>/dev/null || echo 0) )) -lt 1000000000 ] && exit 0
+    jq -e --arg a "0x$2" --arg c "$CLASS" '
+        (map(select(.class == $c)) | first) as $pp
+        | (map(select(.address == $a)) | first) as $new
+        | $pp != null and ($pp.workspace.name | startswith("special:") | not)
+          and $pp.address != $a
+          and ($new == null or ($new.pid != $pp.pid
+               and ($new.class | test("xdg-desktop-portal") | not)))
+    ' <<<"$clients" >/dev/null || exit 0
+    hide "$(jq -r .address <<<"$win")"
+    exit 0
+fi
+
+if [ "$win" = "null" ]; then
+    date +%s%N > "$GRACE"
+    setsid -f flatpak run "$CLASS" >/dev/null 2>&1
+    for _ in $(seq 100); do
+        sleep 0.1
+        addr=$(hyprctl clients -j | jq -r --arg c "$CLASS" 'map(select(.class == $c)) | first | .address // empty')
+        [ -n "$addr" ] && break
+    done
+    sleep 0.3   # Electron maps before it accepts focus
+    [ -n "$addr" ] && hyprctl dispatch focuswindow "address:$addr" >/dev/null
+    exit 0
+fi
+
+addr=$(jq -r .address <<<"$win")
+if [ "$(jq -r .workspace.name <<<"$win")" != "$HIDDEN" ]; then
+    hide "$addr"
+    exit 0
+fi
+
+date +%s%N > "$GRACE"
+ws=$(hyprctl monitors -j | jq -r --arg m "$MONITOR" '.[] | select(.name == $m) | .activeWorkspace.id')
+hyprctl dispatch movetoworkspacesilent "$ws,address:$addr" >/dev/null
+hyprctl dispatch focuswindow "address:$addr" >/dev/null

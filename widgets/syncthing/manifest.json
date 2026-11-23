@@ -1,0 +1,1 @@
+{ "id": "syncthing", "name": "Syncthing", "description": "Sync state ring for the local Syncthing (folders, devices, last seen) via its loopback REST API; read-only", "version": "0.1.0" }

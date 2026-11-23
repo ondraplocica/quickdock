@@ -1,0 +1,1 @@
+{ "id": "privacy", "name": "Privacy indicator", "description": "Orange mic / green camera indicator that appears only while an app records the microphone or uses a camera; click for the app names. widgetConfig.privacy.ignore = app-name substrings to skip", "version": "0.1.0" }

@@ -1,0 +1,1 @@
+{ "id": "qtile", "name": "Quick tile", "description": "A quick-settings tile on the dock: put \"qtile:night\", \"qtile:dark\", \"qtile:vpn\" or \"qtile:awake\" in the widget list (or move it there from the quick panel). Lights up while on; click toggles.", "version": "0.1.0" }

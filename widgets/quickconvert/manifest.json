@@ -1,0 +1,1 @@
+{ "id": "quickconvert", "name": "Quick convert", "description": "Currency (ECB rates, cached hourly) and unit converter dropdown; pinned pairs in widgetConfig.quickconvert.pairs", "version": "0.1.0" }
