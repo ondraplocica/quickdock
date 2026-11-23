@@ -76,8 +76,10 @@ ShellRoot {
             }
             Rectangle {   // divider between segments in "bar" style
                 visible: Dock.style === "bar" && seg.index > 0
-                width: 1; height: 28; color: Theme.hairlineHover
-                x: -(root.segGap / 2) - 0.5
+                // exactly one DEVICE pixel wide at any bar scale: a shape thinner than a pixel is only drawn when it
+                // happens to cover a pixel centre, so at scale 0.8 a 1 px line could vanish whenever the centred row shifted
+                width: 1 / Dock.uiScale; height: 28; color: Theme.hairlineHover
+                x: -(root.segGap + width) / 2
                 anchors.verticalCenter: parent.verticalCenter
             }
             Row {
