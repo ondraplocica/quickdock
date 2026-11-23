@@ -13,8 +13,8 @@ ShellRoot {
     readonly property var cfg: Dock.cfg            // live view of config/dock.json
     property var items: ({})                      // id -> loaded widget instance (for IPC)
     // Always run the StatusNotifier host/watcher, even when the `tray` widget isn't on the dock. Apps (and
-    // scripts like quickshare-toggle) look tray icons up through org.kde.StatusNotifierWatcher, which
-    // otherwise has no owner now that the DMS bar is off.
+    // scripts such as app toggles) look tray icons up through org.kde.StatusNotifierWatcher, which
+    // otherwise has no owner when no other bar provides a tray.
     readonly property int trayHost: SystemTray.items.values.length
     // Instantiate the quick-tile singleton at startup: it owns the shared tile state and the Quick Share / Proton Pass focus hooks
     readonly property int quickInit: Quick.ids.length

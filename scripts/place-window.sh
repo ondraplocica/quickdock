@@ -1,5 +1,5 @@
 #!/bin/bash
-# Place a floating dropdown window (e.g. Proton Pass, RQuickShare) next to the dock, right-aligned,
+# Place a floating dropdown window (e.g. Proton Pass) next to the dock, right-aligned,
 # on the dock's monitor, following config/dock.json (position, margin, scale).
 # Usage: place-window.sh <window-class-regex> <width> <height>
 cls="$1"; w="$2"; h="$3"

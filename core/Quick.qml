@@ -71,7 +71,7 @@ Singleton {
     //      "toggle": ["~/bin/vpn", "work", "toggle"],     // run on click
     //      "state":  ["~/bin/vpn", "work", "status"],     // optional, polled: the tile is lit while the output equals "on"
     //      "on": "connected",                             // default "true"
-    //      "place": { "class": "Rquickshare", "w": 640, "h": 620 },   // optional: put that window next to the dock afterwards
+    //      "place": { "class": "SomeApp", "w": 640, "h": 620 },   // optional: put that window next to the dock afterwards
     //      "hook": ["~/bin/app", "--focus-changed"] }]    // optional: run on every focus change, new window address appended
     readonly property string userTilesPath: (Quickshell.env("XDG_CONFIG_HOME") || (home + "/.config")) + "/quickdock/quick-tiles.json"
     property var userTiles: []
