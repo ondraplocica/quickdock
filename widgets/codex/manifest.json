@@ -1,0 +1,1 @@
+{ "id": "codex", "name": "Codex Usage", "description": "OpenAI Codex CLI usage limits (weekly and/or 5-hour window) as a ring with the percentage; the dropdown shows each window, its reset time and the plan. Reads the rate limits Codex logs in its local session files (~/.codex/sessions), no network and no login token; updates while Codex is being used", "version": "0.1.0" }

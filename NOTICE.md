@@ -19,9 +19,10 @@ Online services used by individual widgets, each only when that widget is on the
   (an unofficial OAuth endpoint that may change); it is passed via stdin, never on a command line. For cost figures the
   script also downloads two public files without credentials: LiteLLM's model price table (raw.githubusercontent.com) and
   a USD to EUR rate (frankfurter.app).
+* `codex`: nothing is sent anywhere; it only reads the rate-limit numbers the Codex CLI writes to its own session files under `~/.codex/sessions` (never `auth.json`).
 * `antigravity`: the local server of your own running Antigravity / `agy` process (nothing is sent anywhere).
 * `home`: your own Home Assistant instance, with a long-lived token you create.
 
 Product names (Hyprland, Tailscale, Syncthing, KDE Connect, Solaar, Logitech, Keychron, GitHub, Google, Claude,
-Anthropic, Antigravity, Home Assistant, Proton Pass) belong to their owners; quickdock is not affiliated with or endorsed by
-any of them. The `claude` and `antigravity` widget icons are simple original glyphs, not the vendors' logos.
+Anthropic, Antigravity, OpenAI, Codex, Home Assistant, Proton Pass) belong to their owners; quickdock is not affiliated with or endorsed by
+any of them. The `claude`, `antigravity` and `codex` widget icons are simple original glyphs, not the vendors' logos.
